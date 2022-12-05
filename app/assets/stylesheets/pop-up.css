@@ -1,0 +1,77 @@
+.navlist {
+  display: none;
+  margin: 0;
+  box-shadow:
+  0 0.06875rem 0.0875rem rgb(4, 9, 20 / 3%),
+  0 0.0375rem 0.10625rem rgb(4, 9, 20 / 3%),
+  0 0.05rem 0.03125rem rgb(4, 9, 20 / 5%),
+  0 0.025rem 0.0875rem rgb(4, 9, 20 / 3%);
+}
+.expanded .navlist {
+  display: block;
+}
+
+.name,
+.profile {
+  margin: 16px 0;
+}
+
+.more-data {
+  padding-left: 1rem;
+}
+
+.popup {
+  border: 1px solid rgb(217, 217, 217);
+  margin: 20px auto;
+  padding: 20px 0;
+  background: #fff;
+  width: 30%;
+  position: absolute;
+  transition: all 5s ease-in-out;
+  right: 0;
+  top: 45px;
+  z-index: 5;
+}
+
+.popup li {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+  list-style: none;
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid rgb(217, 217, 217);
+}
+
+.header {
+  margin-right: 2%;
+}
+
+.fa-bars {
+  font-size: 2rem;
+}
+
+.bars {
+  height: 80px
+}
+
+.btn-button {
+  height: 0;
+}
+
+.popup a,
+.popup p {
+  color: #32325d;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+@media screen and (max-width: 700px){
+  .popup{
+    width: 70%;
+  }
+}

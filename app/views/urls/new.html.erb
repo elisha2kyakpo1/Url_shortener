@@ -1,2 +1,9 @@
-<h1>Urls#new</h1>
-<p>Find me in app/views/urls/new.html.erb</p>
+<%= flash[:error] %>
+<div class="">
+  <%= form_with model: @url do |form| %>
+    <div class="d-flex">
+      <%= form.text_field :long_url, placeholder: "Enter link...", class: "form-control" %>
+      <%= form.submit "Shorten" %>
+    </div>
+  <% end %>
+</div>
