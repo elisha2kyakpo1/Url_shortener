@@ -28,26 +28,31 @@ class UrlsController < ApplicationController
   def index
     @urls = Url.all
   end
+
   def new
-    @url = Url.new
+    @link = Url.new
   end
+
   def create
-    @url = Url.new(url_params)
-    @url.short_url = @url.generate_short_url
-    @url.long_url = @url.sanitize
-    if @url.save
+    @link = Url.new(url_params)
+    @link.short_url = @link.generate_short_url
+    @link.long_url = @link.sanitize
+    if @link.save
       redirect_to urls_path
     else
-      flash[:error] = @url.errors.full_messages
+      flash[:error] = @link.errors.full_messages
       redirect_to new_url_path
     end
   end
+
   def show
-    @url = Url.find_by(short_url: params[:short_url])
-    redirect_to @url.sanitize
+    @link = Url.find_by(short_url: params[:short_url])
+    redirect_to @link.sanitize
   end
+
   private
+
   def url_params
-    params.require(:url).permit(:name,:long_url,:user_id)
+    params.require(:url).permit(:name, :long_url, :user_id)
   end
 end

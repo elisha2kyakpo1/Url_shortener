@@ -1,9 +1,9 @@
 <%= flash[:error] %>
-<div class="">
-  <%= form_with model: @url do |form| %>
+<div class="d-flex align-items-center justify-content-around mx-5">
+  <%= form_with model: @url, html: {class: "form"} do |form| %>
     <div class="d-flex">
-      <%= form.text_field :long_url, placeholder: "Enter link...", class: "form-control" %>
-      <%= form.submit "Shorten" %>
+      <%= form.text_field :long_url, placeholder: "Enter or paste your link here...", class: "form-control" %>
+      <%= form.submit "Shorten", class:"shorten" %>
     </div>
   <% end %>
 </div>

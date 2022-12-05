@@ -9,28 +9,20 @@
         </div>
       </div>
       <div class='d-flex gap-2 gap-md-4 justify-content-around'>
-        <%= link_to 'Sign in', user_session_path, class: "login" %>
-        <%= link_to 'Sign Up', new_user_registration_path, class: "login" %>
+  
       </div>
     </div>
     <div class="contain">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field signup__field">
           <%= f.label :email, class: "signup__label" %><br />
-          <%= f.email_field :email, class: "signup__input", autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, class: "signup__input", autocomplete: "email" %>
         </div>
 
         <div class="field signup__field">
           <%= f.label :password, class: "signup__label" %><br />
           <%= f.password_field :password, class: "signup__input", autocomplete: "current-password" %>
         </div>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="field signup__field">
-            <%= f.check_box :remember_me, class: "" %>
-            <%= f.label :remember_me, class: "signup__label" %>
-          </div>
-        <% end %>
 
         <div class="actions">
           <%= f.submit "Log in", class: "btn w-100 mb-1" %>
