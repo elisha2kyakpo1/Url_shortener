@@ -1,26 +1,44 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="d-flex signup_div pb-5 justify-content-center ">
+  <div class="signup">
+    <div class="sign-head">
+      <div class='w-100 header'>
+        <div class='container d-flex flex-column justify-content-end align-items-center'>
+          <div class='d-flex gap-2 gap-md-4 align-items-center justify-content-between'>
+            <h2 class='para text-white mb-0'>Welcome back!</h2>
+          </div>
+        </div>
+      </div>
+      <div class='d-flex gap-2 gap-md-4 justify-content-around'>
+        <%= link_to 'Sign in', user_session_path, class: "login" %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "login" %>
+      </div>
     </div>
-  <% end %>
+    <div class="contain">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field signup__field">
+          <%= f.label :email, class: "signup__label" %><br />
+          <%= f.email_field :email, class: "signup__input", autofocus: true, autocomplete: "email" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+        <div class="field signup__field">
+          <%= f.label :password, class: "signup__label" %><br />
+          <%= f.password_field :password, class: "signup__input", autocomplete: "current-password" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field signup__field">
+            <%= f.check_box :remember_me, class: "" %>
+            <%= f.label :remember_me, class: "signup__label" %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "Log in", class: "btn w-100 mb-1" %>
+        </div>
+      <% end %>
+      <div class="actions text-center">
+        <%= render "devise/shared/links", class: "btn-sign text-center w-100" %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
