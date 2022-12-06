@@ -1,10 +1,17 @@
 <div>
-  <% @urls.each do |url| %>
-    <ul>
-      <li><%= link_to url.short_url, url.short_url(url) %> - <%= url.long_url %></li>
-    </ul>
-  <% end %>
-  <%= link_to 'Create another link', new_url_path %>
-
-  
+  <%= render "layouts/navbar" %>
+  <div class="d-flex align-items-center justify-content-around mt-5">
+    <div>
+      <h2>Short links</h2>
+      <% @urls.each do |url| %>
+        <ul class="list">
+      
+          <li class="link"><%= link_to url.short_url, target: "_blank", rel: "nofollow" %></li>
+        </ul>
+      <% end %>
+      <div class="wrapper">
+        <p class="short-url"><%= link_to 'Generate short link', new_url_path, class: "" %></p>
+      </div>
+    </div>
+  </div>
 </div>

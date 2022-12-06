@@ -34,7 +34,8 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @link = Url.new(url_params)
+    @user = current_user
+    @link = @user.urls.build(url_params)
     @link.short_url = @link.generate_short_url
     @link.long_url = @link.sanitize
     if @link.save
@@ -53,6 +54,6 @@ class UrlsController < ApplicationController
   private
 
   def url_params
-    params.require(:url).permit(:name, :long_url, :user_id)
+    params.require(:url).permit(:long_url, :user_id)
   end
 end

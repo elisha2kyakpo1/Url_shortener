@@ -2,6 +2,64 @@
   width: 100%;
 }
 
+.get-start {
+  color: white;
+  border: 1px solid white;
+  background-color: #F78104;
+  border-radius: 30px;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.get-start:hover {
+  color: white;
+}
+
+.bgPr {
+background-color: #008080;
+padding: 5rem 0;
+}
+
+.navbar-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  height: 75px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6rem 0;
+  background-color: #40b4c7;
+  color: #fff;
+}
+
+.footer p {
+  color: #fff;
+}
+
+.logo {
+  width: 147px;
+  height: 25;
+  font-weight: 700;
+  text-decoration: none;
+  color: #32325d;
+}
+
+.login {
+  color: #32325d;
+  border: none;
+  font-weight: 700;
+  background: transparent;
+  text-decoration: none;
+}
+
 .form .shorten {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
@@ -15,6 +73,55 @@
   outline: none;
 }
 
+.list {
+  position: relative;
+}
+
+.link {
+  list-style: none;
+}
+
+.link a {
+	position:relative;
+	text-decoration: none;
+	color: gray;
+ 	transition:color .15s ease-in-out;
+}
+
+.link a:hover {
+	background-size: 100% 100%;
+	cursor: pointer;
+}
+
+.link a:after {
+	display:block;
+	content:"";
+	position: absolute;
+ 	right:0;
+ 	left:0;
+ 	width:100%;
+	height:3px;
+ 	opacity:0;
+	transform:translateY(-150%);
+ 	transition:transform .15s ease-in-out, opacity .15s ease-in-out;
+ 	background-color: red;
+}
+
+.link a.is-active,
+.link a:active,
+.link a:focus,
+.link a:hover {
+ 	color: red;
+}
+
+.link a.is-active:after,
+.link a:active:after,
+.link a:focus:after,
+.link a:hover:after {
+ 	transform:translateY(0);
+ 	opacity:1;
+}
+
 .form input{
   box-sizing: border-box;
   border-bottom-left-radius: 2px;
@@ -25,4 +132,41 @@
   color:#4E565C;
   outline: none !important;
   -webkit-appearance: none;
+}
+
+.short-url {
+  border-radius: 4px;
+  background-color: #6caee0;
+  border: none;
+  padding: 20px;
+  transition: all 0.5s;
+}
+
+.short-url a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.button-two a:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-two:hover a {
+  padding-right: 10px;
+}
+
+.short-url:hover a:after {
+  opacity: 1;
+  right: 0;
 }

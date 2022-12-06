@@ -5,10 +5,6 @@ export default class extends Controller {
 
   static values = {isOpen: {type: Boolean, default: false}};
 
-  connect() {
-    // console.log("Connected");
-  };
-
   static targets = ["ariaExpander"];
 
   toggle(event) {
