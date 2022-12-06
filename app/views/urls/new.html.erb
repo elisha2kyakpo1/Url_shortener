@@ -1,6 +1,9 @@
 <%= flash[:error] %>
+<% if !current_user %>
+  <p>Need to Sign up or login to shorten your link!</p>
+<% end %>
 <div class="d-flex align-items-center justify-content-around mx-5">
-<%= render "layouts/menu_bar" %>
+  <%= render "layouts/menu_bar" %>
   <%= form_with model: @link, html: {class: "form"} do |form| %>
     <div class="d-flex">
       <%= form.text_field :long_url, placeholder: "Enter or paste your link here...", class: "form-control" %>
@@ -8,3 +11,4 @@
     </div>
   <% end %>
 </div>
+<%= @most_clicked %>
