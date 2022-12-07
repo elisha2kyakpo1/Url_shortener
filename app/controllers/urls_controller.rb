@@ -13,11 +13,11 @@ class UrlsController < ApplicationController
     @user = current_user
     @link = @user.urls.build(url_params)
     @link.short_url = @link.generate_short_url
-    if @link.save
-      redirect_to urls_path
-    else
-      flash[:error] = @link.errors.full_messages
-      redirect_to new_url_path
+    respond_to do |format|
+      if @link.save
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend('urls', partial: 'urls/url', locals: {url: @link}) }
+        format.html { redirect_to url_url(@link), notice: 'Link was successfully created.' }
+      end
     end
   end
 

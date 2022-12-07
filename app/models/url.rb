@@ -16,14 +16,8 @@ class Url < ApplicationRecord
   end
   scope :most_clicked, -> { where('click >= 1').first(5) }
 
-  # def generate_short_url
-  #   self.short_url = SecureRandom.urlsafe_base64(4)
-  # end
-
   def generate_short_url
-    random_chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
-    assign_attributes(short_url: 6.times.map do
-                                   random_chars.sample
-                                 end.join.prepend('http://')) until short_url.present? && Url.find_by_short_url(short_url).nil?
+    self.short_url = SecureRandom.urlsafe_base64(4)
+    "http://localhost:3000/s/#{self.short_url}"
   end
 end
