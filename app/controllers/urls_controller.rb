@@ -22,7 +22,7 @@ class UrlsController < ApplicationController
   end
 
   def show
-    @link = Url.increment!(:click)
+    @link = Url.click_count
     redirect_to @link.long_url
   end
 

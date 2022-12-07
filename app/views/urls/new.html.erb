@@ -1,14 +1,21 @@
-<%= flash[:error] %>
-<% if !current_user %>
-  <p>Need to Sign up or login to shorten your link!</p>
-<% end %>
-<div class="d-flex align-items-center justify-content-around mx-5">
-  <%= render "layouts/menu_bar" %>
-  <%= form_with model: @link, html: {class: "form"} do |form| %>
-    <div class="d-flex">
-      <%= form.text_field :long_url, placeholder: "Enter or paste your link here...", class: "form-control" %>
-      <%= form.submit "Shorten", class:"shorten" %>
+<%= turbo_frame_tag "modal" do %>
+   <%= tag.div data: { controller: "modal",
+                      modal_target: "modal",
+                      action: "turbo:submit-end->modal#submitEnd keyup@window->modal#closeWithKeyboard click@window->modal#closeBackground" },
+                      class: "p-5 bg-slate-300 absolute z-10 top-10 right-10 rounded-md w-96 break-words" do %>
+    <% if !current_user %>
+      <p class="text-danger">Need to Sign up or login to shorten your link!</p>
+    <% end %>
+    <div class="">
+      <%= button_tag '<i class="fa-sharp fa-solid fa-xmark"></i>'.html_safe, data: { action: "modal#hideModal" }, type: "button", class: "close-btn" %>
+      <%= form_with model: @link, html: {class: "form"} do |form| %>
+        <div class="d-flex">
+          <%= form.text_field :long_url, placeholder: "Enter or paste your link here...", class: "form-control" %>
+          <%= form.submit "Shorten", class:"shorten" %>
+        </div>
+      <% end %>
     </div>
+    <%= @most_clicked %>
   <% end %>
-</div>
-<%= @most_clicked %>
+
+<% end %>

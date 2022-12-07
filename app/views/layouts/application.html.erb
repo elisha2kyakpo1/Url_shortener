@@ -18,7 +18,8 @@
   </head>
 
   <body>
+  
     <%= yield %>
-    <%#= render "layouts/footer" %>
+    <%= turbo_frame_tag "modal" %>
   </body>
 </html>
