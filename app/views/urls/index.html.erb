@@ -14,6 +14,9 @@
               </p>
               <div class='d-flex gap-4 mt-5 justify-content-center flex-wrap align-items-center btn-btn'>
                 <button class="view">
+                  <%= link_to 'View most visited', new_url_path, class: "learn", data: { turbo_frame: 'most_visit' } %>
+                </button>
+                <button class="view">
                   <%= link_to 'Generate short link', new_url_path, class: "text-white view-features", data: { turbo_frame: 'modal' } %>
                 </button>
               </div>

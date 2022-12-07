@@ -1,5 +1,24 @@
-  <% isActive =  'active' %>
-<% else %>
-  <% isActive = '' %>
+<%= turbo_frame_tag "most_visit" do %>
+   <%= tag.div data: { controller: "visited",
+                      modal_target: "visited",
+                      action: "turbo:submit-end->visited#submitEnd keyup@window->visited#closeWithKeyboard click@window->visited#closeBackground" },
+                      class: "p-5 bg-slate-300 absolute z-10 top-10 right-10 rounded-md w-96 break-words" do %>
+    <% if !current_user %>
+      <p class="text-danger">Need to Sign up or login to shorten your link!</p>
+    <% end %>
+    <div class="">
+      <%= button_tag '<i class="fa-sharp fa-solid fa-xmark"></i>'.html_safe, data: { action: "visited#hideModal" }, type: "button", class: "close-btn" %>
+      <div class="">
+        <div class="">
+          <h6 class="visit-title">Most visited links</h6>
+          <ul>
+            <li class="link visits"><span><i class="fa-solid fa-magnifying-glass"></i></span><a href="https://www.google.com/">Google</a></li>
+            <li class="link visits"><span><i class="fa-solid fa-magnifying-glass"></i></span><a href="https://www.youtube.com/">YouTube</a></li>
+            <li class="link visits"><span><i class="fa-solid fa-magnifying-glass"></i></span><a href="https://www.facebook.com/">Facebook</a></li>
+            <li class="link visits"><span><i class="fa-solid fa-magnifying-glass"></i></span><a href="https://www.instagram.com/">Instagram</a></li>
+            <li class="link visits"><span><i class="fa-solid fa-magnifying-glass"></i></span><a href="https://www.twitter.com/">Twitter</a></li>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
-<%= @most_clicked, class:'list-group-item room_list_item ' + isActive %>

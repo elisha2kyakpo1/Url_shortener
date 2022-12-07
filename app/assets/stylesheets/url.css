@@ -6,6 +6,16 @@
   width: 100%;
 }
 
+.learn {
+  background-color: rgb(255, 255, 255);
+  color: rgb(247, 129, 4);
+  border: 0;
+  border-radius: 30px;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .get-start {
   color: white;
   border: 1px solid white;
@@ -18,6 +28,13 @@
 
 .get-start:hover {
   color: white;
+  opacity: 0.8;
+}
+
+
+.learn:hover {
+  color: #F78104;
+  opacity: 0.8;
 }
 
 .bgPr {

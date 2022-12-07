@@ -11,6 +11,22 @@
   display: block;
 }
 
+.visits,
+.visit-title {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.fa-magnifying-glass {
+  margin-left: 10px;
+  color: lightgray;
+}
+
+.visits {
+  border-bottom: 1px solid rgb(217, 217, 217);
+  margin: 0.5rem;
+}
+
 .name,
 .profile {
   margin: 16px 0;
