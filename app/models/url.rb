@@ -7,17 +7,9 @@ class Url < ApplicationRecord
                        format: URI::DEFAULT_PARSER.make_regexp(%w[http https]), length: { maximum: 32_779 }
   validates_length_of :short_url, within: 3..16, on: :create, message: 'too long'
 
-  def click_count
-    Url.increment!(:click)
-  end
-
-  def self.most_clicked
-    where(:click >= 1)
-  end
-  scope :most_clicked, -> { where('click >= 1').first(5) }
+  scope :most_clicked, -> { order(click: :desc).limit(10) }
 
   def generate_short_url
     self.short_url = SecureRandom.urlsafe_base64(4)
-    "http://localhost:3000/s/#{self.short_url}"
   end
 end

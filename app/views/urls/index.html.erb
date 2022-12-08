@@ -24,10 +24,16 @@
           </div>
            
         </div>
-        <div id="links">
-          <% @urls.each do |url| %>
-            <%= render url %>
+        <div>
+          <h2 class="fw-bold my-title mt-5 fs-1">Your Links</h2>
+          <% @clicked_most.each do |clicks|%>
+          <p><%= clicks.click %></p>
           <% end %>
+          <div id="urls">
+            <% @urls.each do |url| %>
+              <%= render url %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

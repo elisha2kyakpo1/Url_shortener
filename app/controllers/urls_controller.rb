@@ -1,12 +1,12 @@
 class UrlsController < ApplicationController
-  before_action :authenticate_user!, except: [:new]
+  before_action :authenticate_user!, only: [:click]
   def index
-    @urls = Url.all
+    @urls = Url.all.order(created_at: :desc)
+    @clicked_most = Url.most_clicked
   end
 
   def new
     @link = Url.new
-    @clicked = Url.most_clicked
   end
 
   def create
@@ -15,10 +15,22 @@ class UrlsController < ApplicationController
     @link.short_url = @link.generate_short_url
     respond_to do |format|
       if @link.save
-        format.turbo_stream { render turbo_stream: turbo_stream.prepend('urls', partial: 'urls/url', locals: {url: @link}) }
-        format.html { redirect_to url_url(@link), notice: 'Link was successfully created.' }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.prepend('urls', partial: 'urls/url', locals: { url: @link })
+        end
+        format.html { redirect_to post_url(@link), notice: 'Link was successfully created.' }
+        format.json { render :show, status: :created, location: @link }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def clicks
+    @link = Url.find_by_short_url(params['short_url'])
+    @link.update(click: @link.click + 1)
+    redirect_to @link.long_url, allow_other_host: true
   end
 
   def show
