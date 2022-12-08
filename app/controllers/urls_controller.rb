@@ -2,7 +2,7 @@ class UrlsController < ApplicationController
   before_action :authenticate_user!, only: [:click]
   def index
     @user = current_user
-    @urls = Url.all.order(created_at: :desc)
+    @urls = Url.all.order(created_at: :desc).where(user: @user)
   end
 
   def new
