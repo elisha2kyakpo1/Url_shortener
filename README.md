@@ -31,6 +31,9 @@
 ## Built With
 
 - [Ruby on Rails](https://guides.rubyonrails.org/)
+- [Stimulusjs](https://stimulus.hotwired.dev/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Rspect](https://rspec.info/)
 
 ## Setup
 

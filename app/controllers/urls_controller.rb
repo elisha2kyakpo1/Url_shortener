@@ -32,11 +32,6 @@ class UrlsController < ApplicationController
     redirect_to @link.long_url, allow_other_host: true
   end
 
-  def show
-    @link = Url.click_count
-    redirect_to @link.long_url
-  end
-
   def most_clicked_link
     @user = current_user
     @clicked_most = @user.urls.most_clicked
