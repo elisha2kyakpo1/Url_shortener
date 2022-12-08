@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'urls/index.html.erb', type: :view do
-  
   before(:each) do
     @user = User.new('elisha@test.com', '123456e')
     @user.save

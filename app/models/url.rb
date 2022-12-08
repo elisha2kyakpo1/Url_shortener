@@ -7,7 +7,6 @@ class Url < ApplicationRecord
                        format: URI::DEFAULT_PARSER.make_regexp(%w[http https]), length: { maximum: 32_779 }
   validates_length_of :short_url, within: 3..16, on: :create, message: 'too long'
 
-
   def self.most_clicked
     Url.all.order(click: :desc).limit(10)
   end
