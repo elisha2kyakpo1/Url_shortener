@@ -8,7 +8,7 @@
         <div class="d-flex gap-2 gap-md-4 justify-content-between align-items-center">
           <% if current_user %>
             <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete }, class: "login text-dark" %>
-            <%= link_to 'Get Started', new_url_path, class: "get-start" %>
+            <%= link_to 'Get Started', root_path, class: "get-start" %>
           <% else %>
             <%= link_to 'Log in', user_session_path, class: "login" %>
             <%= link_to 'Sign Up', new_user_registration_path, class: "get-start" %>

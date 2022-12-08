@@ -1,8 +1,8 @@
 class UrlsController < ApplicationController
   before_action :authenticate_user!, only: [:click]
   def index
+    @user = current_user
     @urls = Url.all.order(created_at: :desc)
-    @clicked_most = Url.most_clicked
   end
 
   def new
@@ -10,7 +10,6 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @link = @user.urls.build(url_params)
     @link.short_url = @link.generate_short_url
     respond_to do |format|
@@ -36,6 +35,11 @@ class UrlsController < ApplicationController
   def show
     @link = Url.click_count
     redirect_to @link.long_url
+  end
+
+  def most_clicked_link
+    @user = current_user
+    @clicked_most = @user.urls.most_clicked
   end
 
   private

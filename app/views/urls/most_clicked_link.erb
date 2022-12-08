@@ -1,0 +1,17 @@
+<% if @clicked_most.present? %>
+  <% if !current_user %>
+    <p class="text-danger">Need to Sign up or login to shorten your link!</p>
+  <% end %>
+  <div class="mt-5">
+    <div class="">
+      <div class="">
+        <h6 class="visit-title">Most visited links</h6>
+          <% @clicked_most.each do |clicks|%>
+          <ul>
+            <li class="link"><span><i class="fa-solid fa-magnifying-glass"></i></span><%= link_to "#{url_clicked_url(clicks.short_url)}", "/url/#{url_for(clicks.short_url)}", data: { turbo_frame: "_top"}, target: "_blank", class: "text-purple-600 text-sm" %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
