@@ -8,13 +8,10 @@
 <div align="center" style="margin-bottom: 20px">
   <h3>
     <span> | </span>
-    <a href="https://helpjuicetest-production.up.railway.app/">
+    <a href="urlshortener-production-513b.up.railway.app">
       Live link
     </a>
     <span> | </span>
-    <a href="https://docs.google.com/document/d/1vXFJLYKL6LGgYU00xnBOkkk2ADSLZ8rUnmOe48H0YW0/edit#">
-      Challenge
-    </a>
   </h3>
 </div>
 
